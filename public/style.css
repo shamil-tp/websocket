@@ -1,13 +1,13 @@
 :root {
-    --bg-color: #0f172a;
-    --panel-bg: rgba(30, 41, 59, 0.7);
-    --text-primary: #f8fafc;
-    --text-secondary: #94a3b8;
-    --accent-color: #3b82f6;
-    --accent-hover: #2563eb;
-    --border-color: rgba(255, 255, 255, 0.1);
-    --msg-mine: #3b82f6;
-    --msg-other: rgba(51, 65, 85, 0.8);
+    --bg-color: #F8FAFC;
+    --panel-bg: #FFFFFF;
+    --text-primary: #0F172A;
+    --text-secondary: #64748b;
+    --accent-color: #0F766E;
+    --accent-hover: #0f6159;
+    --border-color: #E2E8F0;
+    --msg-mine: #0F766E;
+    --msg-other: #f1f5f9;
     --msg-system: transparent;
     --glass-blur: blur(12px);
 }
@@ -21,11 +21,6 @@
 body {
     font-family: 'Inter', sans-serif;
     background: var(--bg-color);
-    background-image: 
-        radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
-        radial-gradient(at 50% 0%, hsla(225,39%,30%,0.2) 0, transparent 50%), 
-        radial-gradient(at 100% 0%, hsla(339,49%,30%,0.2) 0, transparent 50%);
-    background-attachment: fixed;
     color: var(--text-primary);
     display: flex;
     justify-content: center;
@@ -52,7 +47,7 @@ h1, h2 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(15, 23, 42, 0.8);
+    background: rgba(15, 23, 42, 0.3); /* Lighter backdrop for light theme */
     backdrop-filter: var(--glass-blur);
     display: flex;
     justify-content: center;
@@ -65,7 +60,7 @@ h1, h2 {
     padding: 40px;
     border-radius: 20px;
     border: 1px solid var(--border-color);
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
     text-align: center;
     max-width: 400px;
     width: 90%;
@@ -87,10 +82,10 @@ h1, h2 {
     width: 100%;
     padding: 14px 20px;
     margin-bottom: 15px;
-    background: rgba(15, 23, 42, 0.6);
+    background: var(--bg-color);
     border: 1px solid var(--border-color);
     border-radius: 12px;
-    color: white;
+    color: var(--text-primary);
     font-size: 1rem;
     font-family: inherit;
     transition: all 0.2s ease;
@@ -99,7 +94,7 @@ h1, h2 {
 .modal-content input:focus {
     outline: none;
     border-color: var(--accent-color);
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+    box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.2);
 }
 
 .btn-primary {
@@ -118,7 +113,7 @@ h1, h2 {
 .btn-primary:hover {
     background: var(--accent-hover);
     transform: translateY(-2px);
-    box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.4);
+    box-shadow: 0 10px 15px -3px rgba(15, 118, 110, 0.3);
 }
 
 /* Chat App Container */
@@ -129,10 +124,9 @@ h1, h2 {
     background: var(--panel-bg);
     border: 1px solid var(--border-color);
     border-radius: 24px;
-    backdrop-filter: var(--glass-blur);
     display: flex;
     flex-direction: column;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     animation: fadeIn 0.5s ease;
 }
@@ -144,7 +138,7 @@ h1, h2 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(30, 41, 59, 0.4);
+    background: var(--panel-bg);
 }
 
 .chat-header h1 {
@@ -152,12 +146,12 @@ h1, h2 {
 }
 
 #user-display {
-    background: rgba(59, 130, 246, 0.2);
+    background: rgba(15, 118, 110, 0.1);
     color: var(--accent-color);
     padding: 6px 14px;
     border-radius: 20px;
     font-size: 0.85rem;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 /* Main Chat Area */
@@ -167,6 +161,7 @@ h1, h2 {
     padding: 30px;
     display: flex;
     flex-direction: column;
+    background: var(--bg-color);
 }
 
 /* Custom Scrollbar */
@@ -177,11 +172,11 @@ h1, h2 {
     background: transparent;
 }
 .chat-main::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(15, 23, 42, 0.1);
     border-radius: 10px;
 }
 .chat-main::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(15, 23, 42, 0.2);
 }
 
 /* Messages */
@@ -233,6 +228,7 @@ h1, h2 {
 }
 .msg-other .msg-body {
     background: var(--msg-other);
+    color: var(--text-primary);
     border-bottom-left-radius: 4px;
 }
 
@@ -253,14 +249,14 @@ h1, h2 {
 /* Footer (Input Area) */
 .chat-footer {
     padding: 20px 30px;
-    background: rgba(30, 41, 59, 0.4);
+    background: var(--panel-bg);
     border-top: 1px solid var(--border-color);
 }
 
 #chat-form {
     display: flex;
     gap: 12px;
-    background: rgba(15, 23, 42, 0.5);
+    background: var(--bg-color);
     padding: 8px;
     border-radius: 16px;
     border: 1px solid var(--border-color);
@@ -268,17 +264,21 @@ h1, h2 {
 }
 
 #chat-form:focus-within {
-    border-color: rgba(255, 255, 255, 0.2);
+    border-color: var(--accent-color);
 }
 
 #msg-input {
     flex: 1;
     background: transparent;
     border: none;
-    color: white;
+    color: var(--text-primary);
     padding: 10px 15px;
     font-size: 1rem;
     font-family: inherit;
+}
+
+#msg-input::placeholder {
+    color: var(--text-secondary);
 }
 
 #msg-input:focus {
